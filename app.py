@@ -12,9 +12,11 @@ import csv
 from usuario import Usuario
 import pdfkit
 from werkzeug.security import generate_password_hash, check_password_hash
-UPLOAD_FOLDER=os.path.abspath("./archivos/")
-path_wkhtmltopdf = r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
-config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+WKHTMLTOPDF_CMD = subprocess.Popen(
+    ['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')],
+    stdout=subprocess.PIPE).communicate()[0].strip()
+config = pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_CMD)
+
 
 
 app=Flask(__name__)
