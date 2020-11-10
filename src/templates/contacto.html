@@ -1,0 +1,33 @@
+{%extends 'base/base.html'%}
+{%block content %}
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/contacto1.css') }}" media="all" >
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style8.css') }}" media="all" >
+<nav class="navbar navbar-expand-lg navbar-light"style="background-color: #3cb371;">
+  <a class="navbar-brand" href="/home">
+    <img src="{{url_for('static',filename='img/logo.png') }}" width="30" height="30" alt="" loading="lazy">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-link active my-2 my-sm-0" href="/home">Cuk <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="/contacto">contactenos</a>
+      <a class="nav-link" href="/login2">Cliente</a>
+      <a class="nav-link" href="/login">Admin</a>
+
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<form name="registro" class="contacto" action="" method="POST" onsubmit="return validar()">
+    <h1>gracias por contactarnos</h1>
+    <div><label>Tu Nombre:</label><input type='text' value=''></div>
+    <div><label>Tu Email:</label><input type='text' value=''></div>
+    <div><label>Asunto:</label><input type='text' value=''></div>
+    <div><label>Mensaje:</label><textarea rows='6'></textarea></div>
+    <div><input type="submit" value="Enviar" class="button" id="registrar" onclick="enviar_mensaje()"></div>
+</form>
+</div>
+{%endblock%}

@@ -1,0 +1,59 @@
+{%extends 'base/base.html'%}
+{%block content %}
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style8.css') }}" media="all" >
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style8.css') }}" media="all" >
+<nav class="navbar navbar-expand-lg navbar-light"style="background-color: #3cb371;">
+    <a class="navbar-brand" href="/homeadmin">
+    <img src="{{url_for('static',filename='img/logo.png') }}" width="30" height="30" alt="" loading="lazy">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-link active my-2 my-sm-0" href="/homeadmin">Cuk <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="/perfiladmin">Perfil</a>
+      <a class="nav-link" href="/recetaadmin">Crear Recetas</a>
+      <a class="nav-link" href="/cargarArchivo">cargar Recetas</a>
+      <a class="nav-link" href="/tablacomentrios">comentarios</a>
+      
+      <a class="nav-link" href="/tabla">Registro de Recetas</a>
+      <a class="nav-link" href="/tablaclientes">Registro de Clientes</a>
+      <a class="nav-link" href="/registroadmin">Registrar Admin</a>
+      <a class="nav-link" href="/logout">Cerrar sesion</a>
+      
+     
+
+    </div>
+  </div>
+</nav>
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/tabla1.css') }}" media="all" >
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/tabla2.css') }}" media="all" >
+<h1><span class="blue">&lt;</span><span class="blue">&gt;</span> <span class="yellow">Comentarios</pan></h1>
+
+    <table class="container" method="DElETE">
+        <thead>
+            <tr>
+                <th><h1>Receta</h1></th>
+                <th><h1>Usuario</h1></th>
+                <th><h1>Comentario</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for recetas in recetas%}
+            {%if recetas.ver != None%}
+            <tr>
+                
+              <td><h2>{{recetas.ver}}</h2></td>
+
+                <td><h2>"{{recetas.comentario_titulo}}"</h2></td>
+                <td><h2>"{{recetas.comentario}}" </h2></td>
+              
+              </tr>
+              {%endif%}
+            {%endfor%}
+        
+        </tbody>
+    </table>
+    
+{%endblock%}

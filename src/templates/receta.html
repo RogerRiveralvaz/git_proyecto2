@@ -1,0 +1,108 @@
+{%extends 'base/base.html'%}
+{%block content %}
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/comentariotarjeta.css') }}" media="all" >
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/comentario1.css') }}" media="all" >
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/receta3.css') }}" media="all" >
+<nav class="navbar navbar-expand-lg navbar-light"style="background-color: #3cb371;">
+    <a class="navbar-brand" href="/home">
+      <img src="{{url_for('static',filename='img/logo.png') }}" width="30" height="30" alt="" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        
+        {% if nombre != None %}
+        <a class="nav-link active my-2 my-sm-0" href="/home">Cuk <span class="sr-only">(current)</span></a>
+        {% endif %}
+        {% if nombre == None %}
+        <a class="nav-link active my-2 my-sm-0" href="/home">Cuk <span class="sr-only">(current)</span></a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+  <section>
+    <header class="main">
+        <h1>{{titulo}}</h1>
+    </header>
+
+    <span class="image main"><img src="{{imagen}}" alt="" /></span>
+<h2>Resumen</h2>
+    <p>{{resumen}}.</p>
+
+    <hr class="major" />
+
+    <h2>Ingredientes</h2>
+    <p>{{ingredientes}}</p>
+
+    <hr class="major" />
+
+    <h2>Preparacion</h2>
+    <p>{{preparacion}}</p>
+    <h2>Tiempo de preparacion</h2>
+    <p>{{tiempo}} minutos</p>
+   
+</section>
+
+</div>
+</div>
+
+
+{% if nombre != None %}
+<div id="container">
+  <h1>&bull; comentar &bull;</h1>
+  <div class="underline">
+  </div>
+  <div class="icon_wrapper">
+   
+  </div>
+  <form action="" method="post" id="contact_form">
+    <div class="name">
+      <label for="name"></label>
+      <input type="text" value="{{nombre}}" placeholder="nombre" name="name" id="name" required>
+    </div>
+    
+    <div class="telephone">
+      <label for="name"></label>
+      <input type="text" placeholder="fecha" name="fecha" id="fecha" required>
+    </div>
+    <div class="subject">
+      <label for="subject"></label>
+      <select placeholder="reaccion" name="reaccion" id="reaccion" required>
+        <option disabled hidden selected>Que reaccion tienes</option>
+        <option>Me gusta</option>
+        <option>no me gusta</option>
+        <option>demasiado compleja</option>
+      </select>
+    </div>
+   
+    <div class="message">
+      <label for="message"></label>
+      <textarea name="comentario" placeholder="comentario" id="comentario" cols="30" rows="5" required></textarea>
+    </div>
+    <div class="submit">
+      <input type="submit" value="Enviar comentario" id="form_button" />
+    </div>
+  </form><!-- // End form -->
+</div><!-- // End #container -->
+
+{% endif %}
+<div class="container">
+  {%for tabla in tabla%}
+  
+  <div class="card">
+    <img src="{{imagen}}">
+    <h4>usuario: {{tabla.comentario_titulo}}</h4>
+    <h4>fecha: {{tabla.comentario_fecha}}</h4>
+
+    <p>comentario: {{tabla.comentario}}</p>
+    <a >reaccion: {{tabla.reaccion}}</a>
+</div>
+  
+  {%endfor%}
+  
+</div>
+
+  </div>
+        {%endblock%}

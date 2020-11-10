@@ -1,0 +1,59 @@
+{%extends 'base/base.html'%}
+  {%block content %}
+  <link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style8.css') }}" media="all" >
+  <nav class="navbar navbar-expand-lg navbar-light"style="background-color: #3cb371;">
+    <a class="navbar-brand" href="/home">
+      <img src="{{url_for('static',filename='img/logo.png') }}" width="30" height="30" alt="" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active my-2 my-sm-0" href="/home">Cuk <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Recetas</a>
+        <a class="nav-link" href="#">Acerca de</a>
+        <a class="nav-link" href="/contacto">contactenos</a>
+        <a class="nav-link" href="/login2">Cliente</a>
+        <a class="nav-link" href="/login">Admin</a>
+
+      </div>
+    </div>
+  </nav>
+<style>
+    div.gallery {
+      margin: 5px;
+      border: 1px solid #ccc;
+      float: left;
+      width: 180px;
+    }
+    
+    div.gallery:hover {
+      border: 1px solid #777;
+    }
+    
+    div.gallery img {
+      width: 100%;
+      height: auto;
+    }
+    
+    div.desc {
+      padding: 15px;
+      text-align: center;
+    }
+    </style>
+  
+    <body>
+        {% for recetas in recetas %}
+        {%if recetas.Titulo != None%}
+    <div class="gallery">
+      <a target="_blank" href="/recetas/{{recetas.Titulo}}">
+        <img src="{{recetas.Imagenes}}" alt="Cinque Terre" width="600" height="400">
+      </a>
+      <div class="desc">{{recetas.Titulo}}</div>
+    </div>
+    {%endif%}
+    
+    {%endfor%}
+    </div>
+    {%endblock%}
