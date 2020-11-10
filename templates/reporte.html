@@ -1,0 +1,52 @@
+{%extends 'base/base.html'%}
+{%block content %}
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Reporte de Recetas</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th><h1>Titulo</h1></th>
+                <th><h1>Resumen</h1></th>
+                <th><h1>ingredientes</h1></th>
+                <th><h1>tiempo de preparacion</h1></th>
+                <th><h1>Imagen</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for recetas in recetas%}
+            {%if recetas.ver == None%}
+            <tr>
+                <td>{{recetas.Titulo}}</td>
+                <td>{{recetas.Resumen}}</td>
+                <td>{{recetas.Ingredientes}}</td>
+                <td>{{recetas.Tiempo_preparacion}}</td>
+                <td><img src="{{recetas.Imagenes}}" width="100px"></td>
+            </tr>
+            {%endif%}
+            {%endfor%}
+    </table>
+
+
+{%endblock%}

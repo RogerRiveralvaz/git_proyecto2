@@ -1,0 +1,9 @@
+[
+    {
+        "nombre":"usuario","apellido":"Maestro","usuario":"admin","contrasena":"admin"
+       
+    },
+    {
+          "nombre":"roger","apellido":"Rivera","usuario":"roger","contrasena":"123"
+    }
+]

@@ -1,0 +1,49 @@
+{%extends 'base/base.html'%}
+{%block content %}
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/reac1.css') }}" media="all" >
+<link  rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style8.css') }}" media="all" >
+<nav class="navbar navbar-expand-lg navbar-light"style="background-color: #3cb371;">
+  <a class="navbar-brand" href="/homeadmin">
+  <img src="{{url_for('static',filename='img/logo.png') }}" width="30" height="30" alt="" loading="lazy">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="navbar-nav ml-auto">
+    <a class="nav-link active my-2 my-sm-0" href="/homeadmin">Cuk <span class="sr-only">(current)</span></a>
+    <a class="nav-link" href="/perfiladmin">Perfil</a>
+    <a class="nav-link" href="/recetaadmin">Crear Recetas</a>
+    <a class="nav-link" href="/cargarArchivo">cargar Recetas</a>
+    <a class="nav-link" href="/tablacomentrios">comentarios</a>
+    
+    <a class="nav-link" href="/tabla">Registro de Recetas</a>
+    <a class="nav-link" href="/tablaclientes">Registro de Clientes</a>
+    <a class="nav-link" href="/registroadmin">Registrar Admin</a>
+    <a class="nav-link" href="/logout">Cerrar sesion</a>
+    
+   
+
+  </div>
+</div>
+</nav>
+
+                            
+                       <div class="container">  
+<div class="chart-wrap horizontal"> 
+    <div class="title">{{titulo}}</div>
+   
+    <div class="grid">
+        <div class="bar" style="--bar-value:{{megusta}}%;" data-name="Me gusta" title="Me gusta 85%"></div>
+        
+        <div class="bar" style="--bar-value:{{nomegusta}}%;" data-name="no megusta" title="Tumblr 7%"></div>
+        <div class="bar" style="--bar-value:{{opcion}}%;" data-name="Demasiado compleja" title="Facebook 38%"></div>
+        
+    </div>
+  
+</div>
+</div>  
+                  
+  
+    
+              {%endblock%}

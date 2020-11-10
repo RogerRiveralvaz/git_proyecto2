@@ -1,0 +1,50 @@
+{%extends 'base/base.html'%}
+{%block content %}
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Reporte de Clientes</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th><h1>Nombre</h1></th>
+                <th><h1>Apellido</h1></th>
+                <th><h1>usuario</h1></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {%for clientes in clientes%}
+           
+            <tr>
+                <td>{{clientes.name}}</td>
+                <td>{{clientes.last_name}}</td>
+                <td>{{clientes.username}}</td>
+                
+            </tr>
+            
+            {%endfor%}
+    </table>
+
+
+{%endblock%}
